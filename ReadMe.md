@@ -20,7 +20,7 @@ https://github.com/DDTRobot/TITA_ROS2_Control_Sim.git
 仿真部分
 ```bash 
 #拉下代码
-git clone https://github.com/talon-huang/sim2sim2real.git
+git clone https://github.com/DDTRobot/sim2sim2real.git
 
 cd sim2sim2real
 

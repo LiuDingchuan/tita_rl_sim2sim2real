@@ -13,7 +13,8 @@ conda deactivate
 安装ros2_control   
 https://github.com/DDTRobot/TITA_ROS2_Control_Sim.git
 
-** 或者直接使用docker **
+**或者直接使用docker**
+
 https://github.com/DDTRobot/webots2023b_ros2_docker
 
 按照以下命令行拉取编译代码  

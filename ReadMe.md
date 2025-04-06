@@ -8,19 +8,19 @@
 conda deactivate
 ```
 
-### 安装环境
+
+### 安装环境（宿主机host中执行）
 
 安装ros2_control :
 
 https://github.com/DDTRobot/TITA_ROS2_Control_Sim.git
 
-**或者直接使用docker**
+**或者直接使用docker，已配置好tensor\webots\ros2\ros2-control环境**
 
 https://github.com/DDTRobot/webots2023b_ros2_docker
 
 按照以下命令行拉取编译代码  
 
-**仿真部分**
 ```bash 
 #本仓库
 git clone https://github.com/DDTRobot/sim2sim2real.git
@@ -36,9 +36,7 @@ vcs import < sim2sim2real.repos
 把位置修改为把推理出来的model_gn.engine路径。 **如果是在docker下运行，请将.engine的路径修改为docker中的路径，而不是宿主机的路径！！（一般为/mnt/dev/*.engine）**
 
 
-### 运行
-
-以下部分docker和host都一样：
+### 运行 (docker和 host都可以)
 
 ```bash
 #编译

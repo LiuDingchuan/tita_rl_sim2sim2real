@@ -8,9 +8,10 @@
 conda deactivate
 ```
 
-安装环境
+### 安装环境
 
-安装ros2_control   
+安装ros2_control :
+
 https://github.com/DDTRobot/TITA_ROS2_Control_Sim.git
 
 **或者直接使用docker**
@@ -19,21 +20,27 @@ https://github.com/DDTRobot/webots2023b_ros2_docker
 
 按照以下命令行拉取编译代码  
 
-仿真部分
+**仿真部分**
 ```bash 
-#拉下代码
+#本仓库
 git clone https://github.com/DDTRobot/sim2sim2real.git
 
 cd sim2sim2real
 
-#拉去其余代码
+#其他仓库
 vcs import < sim2sim2real.repos
 ```
-编译之前先修改这个文件，src/tita_locomotion/tita_controllers/tita_controller/src/fsm/FSMState_RL.cpp
+
+编译之前先修改这个文件：src/tita_locomotion/tita_controllers/tita_controller/src/fsm/FSMState_RL.cpp
 ![alt text](/pictures/image.png)
 把位置修改为把推理出来的model_gn.engine路径。 **如果是在docker下运行，请将.engine的路径修改为docker中的路径，而不是宿主机的路径！！（一般为/mnt/dev/*.engine）**
 
-```bash 
+
+### 运行
+
+以下部分docker和host都一样：
+
+```bash
 #编译
 source /opt/ros/humble/setup.bash && colcon build --packages-up-to locomotion_bringup webots_bridge robot_inertia_calculator template_ros2_controller tita_controller joy_controller keyboard_controller
 
@@ -48,7 +55,8 @@ source /opt/ros/humble/setup.bash && source install/setup.bash && ros2 run keybo
 
 ```
 
-实机部分
+### 实机部分
+
 ```bash 
 #拷贝文件进入机器
 scp -r 你的路径/tita_ros2/src robot@192.168.42.1:~/tita_ros2/

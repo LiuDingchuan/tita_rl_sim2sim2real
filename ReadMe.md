@@ -31,7 +31,7 @@ vcs import < sim2sim2real.repos
 ```
 编译之前先修改这个文件，src/tita_locomotion/tita_controllers/tita_controller/src/fsm/FSMState_RL.cpp
 ![alt text](/pictures/image.png)
-把位置修改为把推理出来的model_gn.engine路径。 **如果是在docker下运行，请将.engine的路径修改为docker中的路径，而不是宿主机的路径！！**
+把位置修改为把推理出来的model_gn.engine路径。 **如果是在docker下运行，请将.engine的路径修改为docker中的路径，而不是宿主机的路径！！（一般为/mnt/dev/*.engine）**
 
 ```bash 
 #编译

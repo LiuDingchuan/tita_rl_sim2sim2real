@@ -50,6 +50,9 @@ source /opt/ros/humble/setup.bash && source install/setup.bash && ros2 launch lo
 #启动键盘指令输入终端
 source /opt/ros/humble/setup.bash && source install/setup.bash && ros2 run keyboard_controller keyboard_controller_node --ros-args -r __ns:=/tita
 
+#如果webots遇到不显示机器人mesh的情况:
+sudo mkdir -p /usr/share/robot_description
+sudo cp -r src/tita_locomotion/tita_description/tita /usr/share/robot_description/
 
 ```
 

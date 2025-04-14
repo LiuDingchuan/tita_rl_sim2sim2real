@@ -86,3 +86,5 @@ crsf-app -bind
 nohup ros2 launch locomotion_bringup hw_bringup.launch.py ctrl_mode:=wbc &
 nohup ros2 launch joy_controller joy_controller.launch.py &
 ```
+
+如果您的tensorrt是10.x版本，参考[这里](https://github.com/DDTRobot/tita_rl_sim2sim2real/issues/1)

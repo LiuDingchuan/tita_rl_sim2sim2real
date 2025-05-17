@@ -11,9 +11,10 @@ conda deactivate
 安装环境
 1. 安装ros2_control   
 https://github.com/DDTRobot/TITA_ROS2_Control_Sim.git
-
-
-
+2. 安装ros-humble-pinocchio
+```
+sudo apt install ros-humble-pinocchio
+```
 
 按照以下命令行拉取编译代码  
 

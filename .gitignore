@@ -2,6 +2,8 @@
 /install
 /log
 /build
+*.pdf
+*.gv
 
 # 排除 src 文件夹
 !src/

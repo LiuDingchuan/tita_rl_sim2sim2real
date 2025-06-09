@@ -2,7 +2,7 @@
  * @Author: hilab-workshop-ldc 2482812356@qq.com
  * @Date: 2025-05-17 18:19:28
  * @LastEditors: hilab-workshop-ldc 2482812356@qq.com
- * @LastEditTime: 2025-05-17 18:21:01
+ * @LastEditTime: 2025-06-09 16:16:13
  * @FilePath: /tita_rl_sim2sim2real/ReadMe.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -53,13 +53,13 @@ vcs import < sim2sim2real.repos
 
 ```bash
 #编译
-source /opt/ros/humble/setup.bash && colcon build --packages-up-to locomotion_bringup webots_bridge robot_inertia_calculator template_ros2_controller tita_controller joy_controller keyboard_controller
+source /opt/ros/humble/setup.bash && colcon build --packages-up-to locomotion_bringup webots_bridge gazebo_bridge robot_inertia_calculator template_ros2_controller tita_controller joy_controller keyboard_controller
 
 source install/setup.bash 
 
 #启动webots仿真
 source /opt/ros/humble/setup.bash && source install/setup.bash && ros2 launch locomotion_bringup sim_bringup.launch.py
-
+#ros2 launch locomotion_bringup sim_diablopluspro.launch.py
 #启动键盘指令输入终端
 source /opt/ros/humble/setup.bash && source install/setup.bash && ros2 run keyboard_controller keyboard_controller_node --ros-args -r __ns:=/tita
 

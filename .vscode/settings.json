@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "/home/hilabldc/tita_rl_sim2sim2real/src/tita_bringup",
+    "cmake.sourceDirectory": "/home/wex/tita_rl_sim2sim2real/src/tita_bringup",
     "files.associations": {
         "cctype": "cpp",
         "clocale": "cpp",

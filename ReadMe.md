@@ -88,7 +88,14 @@ cd tita_ros2/
 source /opt/ros/humble/setup.bash
 
 #编译
-colcon build --packages-up-to locomotion_bringup robot_inertia_calculator template_ros2_controller tita_controller joy_controller keyboard_controller hw_broadcaster
+#colcon build --packages-up-to locomotion_bringup robot_inertia_calculator template_ros2_controller tita_controller joy_controller keyboard_controller hw_broadcaster
+colcon build --packages-up-to locomotion_bringup robot_inertia_calculator tita_controller keyboard_controller hardware_bridge tita_description joy_controller --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --parallel-workers 5
+
+--symlink-install 作用是工作空间（source）中的文件发生变化时，安装目录（build）的文件也会随着改变。这样在调试的时候会高效一些
+
+--cmake-args '-DCMAKE_BUILD_TYPE=RelWithDebInfo' 可以选择 RelWithDebInfo、Debug 或 Release。对应 CMake 的三种编译选项，其中 Release 模式主要用于发布代码，会忽略调试信息；Debug 模式主要用于调试代码，因为需要生成调试信息，所以时间较长；RelWithDebInfo 则在 Release 模式下生成调试信息，也可以用于调试代码。通常建议使用 RelWithDebInfo 即可。
+
+--parallel-workers 5 开启多个线程并行编译
 
 source install/setup.bash 
 
@@ -97,7 +104,8 @@ crsf-app -bind
 
 #分别运行
 nohup ros2 launch locomotion_bringup hw_bringup.launch.py ctrl_mode:=wbc &
-nohup ros2 launch joy_controller joy_controller.launch.py &
+nohup ros2 launch joy_controller joy_controller.launch.py & #手柄调试
+ros2 run keyboard_controller keyboard_controller_node --ros-args -r __ns:=/tita #键盘调试
 ```
 
 如果您的tensorrt是10.x版本，参考[这里](https://github.com/DDTRobot/tita_rl_sim2sim2real/issues/1)

@@ -2,7 +2,7 @@
  * @Author: hilab-workshop-ldc 2482812356@qq.com
  * @Date: 2025-05-17 18:19:28
  * @LastEditors: hilab-workshop-ldc 2482812356@qq.com
- * @LastEditTime: 2025-06-09 16:16:13
+ * @LastEditTime: 2025-06-14 18:14:52
  * @FilePath: /tita_rl_sim2sim2real/ReadMe.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -90,7 +90,7 @@ source /opt/ros/humble/setup.bash
 #编译
 colcon build --packages-up-to locomotion_bringup robot_inertia_calculator template_ros2_controller tita_controller joy_controller keyboard_controller hw_broadcaster
 
-source install/setup.bash 
+source install/setup.bash
 
 #连接遥控器
 crsf-app -bind
@@ -101,3 +101,19 @@ nohup ros2 launch joy_controller joy_controller.launch.py &
 ```
 
 如果您的tensorrt是10.x版本，参考[这里](https://github.com/DDTRobot/tita_rl_sim2sim2real/issues/1)
+
+### ROS bag相关配置
+
+```bash
+source install/setup.bash
+ros2 bag record -o <输出数据包名称> <话题名称1> <话题名称2> ... #-o指定输出的数据包名称
+
+#例
+ros2 bag record -o tita_controller_log /tita/tita_controller/plan_commands /tita/tita_controller/robot_states
+
+#查看记录的bag文件内容
+ros2 bag info tita_controller_log
+
+#重放bag文件
+ros2 bag play tita_controller_log
+```

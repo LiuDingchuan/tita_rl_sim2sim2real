@@ -1,8 +1,8 @@
 <!--
  * @Author: hilab-workshop-ldc 2482812356@qq.com
  * @Date: 2025-05-17 18:19:28
- * @LastEditors: hilab-workshop-ldc 2482812356@qq.com
- * @LastEditTime: 2025-06-14 18:14:52
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2025-06-23 22:30:58
  * @FilePath: /tita_rl_sim2sim2real/ReadMe.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -89,7 +89,8 @@ source /opt/ros/humble/setup.bash
 
 #编译
 #colcon build --packages-up-to locomotion_bringup robot_inertia_calculator template_ros2_controller tita_controller joy_controller keyboard_controller hw_broadcaster
-colcon build --packages-up-to locomotion_bringup robot_inertia_calculator tita_controller keyboard_controller hardware_bridge tita_description joy_controller --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --parallel-workers 5
+colcon build --packages-up-to locomotion_bringup robot_inertia_calculator tita_controller keyboard_controller hardware_bridge tita_description joy_controller 
+#--symlink-install --parallel-workers 5 --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
 --symlink-install 作用是工作空间（source）中的文件发生变化时，安装目录（build）的文件也会随着改变。这样在调试的时候会高效一些
 
@@ -117,7 +118,7 @@ source install/setup.bash
 ros2 bag record -o <输出数据包名称> <话题名称1> <话题名称2> ... #-o指定输出的数据包名称
 
 #例
-ros2 bag record -o tita_controller_log /tita/tita_controller/plan_commands /tita/tita_controller/robot_states
+ros2 bag record -o tita_controller_log /tita/tita_controller/plan_commands /tita/tita_controller/robot_states /tita/imu_sensor_broadcaster/imu
 
 #查看记录的bag文件内容
 ros2 bag info tita_controller_log
